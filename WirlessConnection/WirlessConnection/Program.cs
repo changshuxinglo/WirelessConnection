@@ -9,8 +9,8 @@ namespace WirlessConnection
 {
     class Program
     {
-        private static string Account = "1000310164";
-        private static string Password = "!@#QWE";
+        private static string Account = "";
+        private static string Password = "";
 
         private static string HttpPost(string url, string postString)
         {
