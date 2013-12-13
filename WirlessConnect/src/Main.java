@@ -6,8 +6,8 @@ import java.net.URL;
 import java.net.URLConnection;
 
 public class Main {
-	private static final String Account = "1000310164";
-	private static final String Password = "!@#QWE";
+	private static final String Account = "";
+	private static final String Password = "";
 
 	public static String sendPost(String url, String param) {
 		PrintWriter out = null;
@@ -15,23 +15,23 @@ public class Main {
 		String result = "";
 		try {
 			URL realUrl = new URL(url);
-			// ´ò¿ªºÍURLÖ®¼äµÄÁ¬½Ó
+			// ï¿½ò¿ªºï¿½URLÖ®ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			URLConnection conn = realUrl.openConnection();
-			// ÉèÖÃÍ¨ÓÃµÄÇëÇóÊôÐÔ
+			// ï¿½ï¿½ï¿½ï¿½Í¨ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			conn.setRequestProperty("accept", "*/*");
 			conn.setRequestProperty("connection", "Keep-Alive");
 			conn.setRequestProperty("user-agent",
 					"Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.1;SV1)");
-			// ·¢ËÍPOSTÇëÇó±ØÐëÉèÖÃÈçÏÂÁ½ÐÐ
+			// ï¿½ï¿½ï¿½ï¿½POSTï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			conn.setDoOutput(true);
 			conn.setDoInput(true);
-			// »ñÈ¡URLConnection¶ÔÏó¶ÔÓ¦µÄÊä³öÁ÷
+			// ï¿½ï¿½È¡URLConnectionï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out = new PrintWriter(conn.getOutputStream());
-			// ·¢ËÍÇëÇó²ÎÊý
+			// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			out.print(param);
-			// flushÊä³öÁ÷µÄ»º³å
+			// flushï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä»ï¿½ï¿½ï¿½
 			out.flush();
-			// ¶¨ÒåBufferedReaderÊäÈëÁ÷À´¶ÁÈ¡URLµÄÏìÓ¦
+			// ï¿½ï¿½ï¿½ï¿½BufferedReaderï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¡URLï¿½ï¿½ï¿½ï¿½Ó¦
 			in = new BufferedReader(
 					new InputStreamReader(conn.getInputStream()));
 			String line;
@@ -39,10 +39,10 @@ public class Main {
 				result += line;
 			}
 		} catch (Exception e) {
-			System.out.println("·¢ËÍ POST ÇëÇó³öÏÖÒì³££¡" + e);
+			System.out.println("ï¿½ï¿½ï¿½ï¿½ POST ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ì³£ï¿½ï¿½" + e);
 			// e.printStackTrace();
 		}
-		// Ê¹ÓÃfinally¿éÀ´¹Ø±ÕÊä³öÁ÷¡¢ÊäÈëÁ÷
+		// Ê¹ï¿½ï¿½finallyï¿½ï¿½ï¿½ï¿½ï¿½Ø±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		finally {
 			try {
 				if (out != null) {
@@ -75,12 +75,12 @@ public class Main {
 			String re = inputStream2String(in);
 			in.close();
 			if (re.indexOf("Redirect") == -1) {
-				System.out.println("Á¬½Ó³É¹¦");
+				System.out.println("ï¿½ï¿½ï¿½Ó³É¹ï¿½");
 			} else {
 				throw new Exception();
 			}
 		} catch (Exception e) {
-			System.out.println("ÎÞ·¨Á¬½Ó");
+			System.out.println("ï¿½Þ·ï¿½ï¿½ï¿½ï¿½ï¿½");
 			String sr = sendPost("https://wac.shnu.edu.cn/login.html",
 					"buttonClicked=4&err_flag=0Z&info_flag=0&info_msg=0&username="
 							+ Account + "&password=" + Password
